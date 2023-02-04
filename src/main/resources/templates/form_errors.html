@@ -1,0 +1,8 @@
+<div th:fragment="formErrorsFragment" th:if="${#fields.hasAnyErrors()}">
+    <div class="alert alert-danger" role="alert" th:each="err : ${#fields.allErrors()}">
+    	<strong th:text="${err}"></strong>
+    	<button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button">
+    	</button>
+    </div>  
+</div>
+
