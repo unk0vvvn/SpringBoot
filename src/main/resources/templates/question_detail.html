@@ -43,8 +43,8 @@
 			</div>
 			
 			<!-- 질문 댓글 시작 -->
-			<div class="mt-3" th:if="${not #lists.isEmpty(question.commentList)}">
-				<div th:each="comment, index : ${question.commentList}" class="comment py-2 text-muted">
+			<div class="mt-3" th:if="${not #lists.isEmpty(question.comments)}">
+				<div th:each="comment, index : ${question.comments}" class="comment py-2 text-muted">
 					<span style="white-space: pre-line;" th:text="${comment.content}"></span>
 					
 					<span th:if="${comment.modifyDate == null}" 
@@ -123,8 +123,8 @@
 			</div>
 			
 			<!-- 답변 댓글 시작 -->
-			<div class="mt-3" th:if="${not #lists.isEmpty(answer.commentList)}">
-				<div th:each="comment, index : ${answer.commentList}" class="comment py-2 text-muted">
+			<div class="mt-3" th:if="${not #lists.isEmpty(answer.comments)}">
+				<div th:each="comment, index : ${answer.comments}" class="comment py-2 text-muted">
 					<span style="white-space: pre-line;" th:text="${comment.content}"></span>
 					
 					<span th:if="${comment.modifyDate == null}" 
@@ -199,7 +199,7 @@
 </form>
 </div>
 
-<script layout:fragment="script" type="text/javascript">
+<script th:inline="javascript" layout:fragment="script" type="text/javascript">
 const page_elements = document.getElementsByClassName("page-link");
 Array.from(page_elements).forEach((element)=>{
 	element.addEventListener('click', ()=>{
